@@ -9,6 +9,7 @@ pipeline {
         stage('test') {
             steps {
                     echo "Testing the application..."
+                    error("Forcing failure in test stage") // Triggers failure
             }
         }
         stage('deploy') {
@@ -21,8 +22,8 @@ pipeline {
         always {
             echo "Always block"
         }
-        success {
-            echo "Success block"
+        failure {
+            echo "failure block"
         }
     }
 }
