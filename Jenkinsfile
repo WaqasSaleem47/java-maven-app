@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             when {
                 expression {
-                    BRANCH_NAME == 'Jenkinsfile' && CODE_CHANGES == true
+                    env.BRANCH_NAME == 'Jenkinsfile'
                 }
             }
             steps {
