@@ -9,7 +9,8 @@ pipeline {
             steps {
                     echo "Building the application..."
                     echo "Building version ${APP_VERSION}"
-                    echo "Docker Hub credentials ${Dockerhub_Credentials}"
+                    echo "Docker Hub credentials ${Dockerhub_Credentials_USR}"
+                    //echo "Docker Hub credentials ${Dockerhub_Credentials_PSW}"
             }
         }
         stage('test') {
