@@ -2,14 +2,14 @@ pipeline {
     agent any
     envirnment {
         APP_VERSION = '1.3.0'
-        Dockerhub-Credentials = credentials('Dockerhub-Credentials')
+        Dockerhub_Credentials = credentials('Dockerhub-Credentials')
     }
     stages {
         stage('build') {
             steps {
                     echo "Building the application..."
                     echo "Building version ${APP_VERSION}"
-                    echo "Docker Hub credentials ${Dockerhub-Credentials}"
+                    echo "Docker Hub credentials ${Dockerhub_Credentials}"
             }
         }
         stage('test') {
