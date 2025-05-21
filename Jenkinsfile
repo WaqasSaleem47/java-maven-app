@@ -11,6 +11,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'Dockerhub-Credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         echo "Docker Hub username: ${DOCKER_USER}"
                         echo "Docker Hub password: ${DOCKER_PASS}"
+                    }
             }
         }
         stage('test') {
