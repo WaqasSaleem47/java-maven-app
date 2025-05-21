@@ -2,6 +2,11 @@ pipeline {
     agent any
     stages {
         stage('build') {
+            when {
+                expression {
+                    BRANCH_NAME == 'Jenkinsfile' && CODE_CHANGES == true
+                }
+            }
             steps {
                     echo "Building the application..."
             }
@@ -9,7 +14,6 @@ pipeline {
         stage('test') {
             steps {
                     echo "Testing the application..."
-                    error("Forcing failure in test stage") // Triggers failure
             }
         }
         stage('deploy') {
@@ -17,13 +21,5 @@ pipeline {
                     echo "Deploying the application..."
             }
         }       
-    }
-    post {
-        always {
-            echo "Always block"
-        }
-        failure {
-            echo "failure block"
-        }
     }
 }
