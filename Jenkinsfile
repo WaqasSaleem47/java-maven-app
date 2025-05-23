@@ -41,7 +41,7 @@ pipeline {
                         message: 'Select the environment to deploy:',
                         ok: 'Done',
                         parameters: [
-                            choice(name: 'ENV2', choices: ['dev', 'staging', 'prod'], description: 'Choose first environment')
+                            choice(name: 'ENV2', choices: ['dev', 'staging', 'prod'], description: 'Choose first environment'),
                             choice(name: 'ENV2', choices: ['dev', 'staging', 'prod'], description: 'Choose second environment')
                         ]
                     )
