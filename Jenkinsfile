@@ -37,7 +37,7 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    input(
+                    def ENV = input(
                         message: 'Select the environment to deploy:',
                         ok: 'Done',
                         parameters: [
