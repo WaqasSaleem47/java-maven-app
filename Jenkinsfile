@@ -46,10 +46,18 @@ pipeline {
                         ]
                     )
                     gv.deployApp()
-                    echo "Deploying to ${ENV['ENV1']}"
-                    echo "Deploying to ${ENV['ENV2']}"
+                    env.ENV1 = ENV['ENV1']
+                    env.ENV2 = ENV['ENV2']
                 }
             }
-        }       
+        }
+        stage('post') {
+            steps {
+                script {
+                    echo "Deploying to ${env.ENV1}"
+                    echo "Deploying to ${env.ENV2}"
+                }
+            }
+        }
     }
 }
