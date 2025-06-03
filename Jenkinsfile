@@ -25,5 +25,8 @@ pipeline {
         failure {
             echo "failure block"
         }
+        success {
+            echo "Success block"
+        }
     }
 }
