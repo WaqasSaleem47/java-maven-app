@@ -3,17 +3,18 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                    echo "Building the application..."
+                echo "Building the application..."
             }
         }
         stage('test') {
             steps {
-                    echo "Testing the application..."
+                echo "Testing the application..."
+                error("Forcing failure in test stage") // Triggers failure
             }
         }
         stage('deploy') {
             steps {
-                    echo "Deploying the application..."
+                echo "Deploying the application..."
             }
         }       
     }
@@ -21,8 +22,8 @@ pipeline {
         always {
             echo "Always block"
         }
-        success {
-            echo "Success block"
+        failure {
+            echo "failure block"
         }
     }
 }
