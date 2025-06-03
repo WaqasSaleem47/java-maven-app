@@ -15,6 +15,14 @@ pipeline {
             steps {
                     echo "Deploying the application..."
             }
+        }       
+    }
+    post {
+        always {
+            echo "Always block"
+        }
+        success {
+            echo "Success block"
         }
     }
 }
