@@ -2,15 +2,16 @@ pipeline {
     agent any
     environment {
         APP_VERSION = '1.3.0'
-        Dockerhub_Credentials = credentials('Dockerhub-Credentials')
     }
     stages {
         stage('build') {
             steps {
                     echo "Building the application..."
                     echo "Building version ${APP_VERSION}"
-                    echo "Docker Hub credentials ${Dockerhub_Credentials_USR}"
-                    echo "Docker Hub credentials ${Dockerhub_Credentials_PSW}"
+                    withCredentials([usernamePassword(credentialsId: 'Dockerhub-Credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        echo "Docker Hub username: ${DOCKER_USER}"
+                        echo "Docker Hub password: ${DOCKER_PASS}"
+                    }
             }
         }
         stage('test') {
