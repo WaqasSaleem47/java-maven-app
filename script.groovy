@@ -10,7 +10,7 @@ def buildJar() {
 
 def buildImage() {
     echo "building the docker image..."
-    withCredentials([usernamePassword(credentialsId: 'dockerhub-Credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+    withCredentials([usernamePassword(credentialsId: 'dockerHub-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
         sh 'docker build -t waqassaleem/java-maven-app:jma-4.0 .'
         sh 'docker tag waqassaleem/java-maven-app:jma-4.0 localhost:90/java-maven-app:jma-4.0'
         
