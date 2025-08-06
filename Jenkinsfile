@@ -5,8 +5,8 @@ pipeline {
         stage("run test") {
             steps {
                 script {
-                    echo "Testing the application"
-                    echo "Executing pipeline for $BRANCH_NAME"
+                    echo "Testing the application“
+	         echo "Executing pipeline for $BRANCH_NAME"
                 }
             }
         }
@@ -25,14 +25,14 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    echo "Building the docker image"
+                    echo "Building the Docker image"
                 }
             }
         }
         stage("deploy") {
             steps {
                 script {
-                    echo "Deploying the docker image"
+                    echo "Deploying the Docker image"
                 }
             }
         }
