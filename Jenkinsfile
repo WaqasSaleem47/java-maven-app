@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-
 @Library('jenkins-shared-library')
 def gv
 pipeline {
@@ -32,7 +31,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    buildImage()
+                    buildImage 'waqassaleem/java-maven-app:4.0'
                 }
             }
         }
