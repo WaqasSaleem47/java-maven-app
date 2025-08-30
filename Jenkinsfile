@@ -31,14 +31,15 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    buildImage 'waqassaleem/java-maven-app:4.0'
+                    buildImage 'java-maven-app:5.0'
                 }
             }
         }
         stage("deploy") {
             steps {
                 script {
-                    gv.deployApp()
+                    dockerLogin()
+                    dockerPush 'java-maven-app:5.0'
                 }
             }
         }
