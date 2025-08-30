@@ -1,50 +1,38 @@
-#!/usr/bin/env groovy
-library identifier: 'Jenkins-shared-library@main', retriever: modernSCM(
-    [$class: 'GitSCMSource',
-     remote: 'http://www.gitea.com/Admin/jenkins-shared-library.git',
-     credentialsId: 'Gitea_Credentials'
-    ]
-)
 def gv
 pipeline {
     agent any
-    tools {
-    maven 'Maven'
-    }
     stages {
-        stage("init") {
-            steps {
-                script {
-                    gv = load "script.groovy"
-                }
-            }
-        }
         stage("run test") {
             steps {
                 script {
-                    gv.runTest()
+                    echo "Testing the application"
+                    echo "Executing pipeline for $BRANCH_NAME"
                 }
             }
         }
         stage("build jar") {
+            when {
+                expression {
+                    BRANCH_NAME == 'main'
+                }
+            }
             steps {
                 script {
-                    buildJar()
+                    echo "Building the jar file"
                 }
             }
         }
         stage("build image") {
             steps {
                 script {
-                    buildImage 'java-maven-app:5.0'
+                    echo "Building the Docker image"
                 }
             }
         }
         stage("deploy") {
             steps {
                 script {
-                    dockerLogin()
-                    dockerPush 'java-maven-app:5.0'
+                    echo "Deploying the Docker image"
                 }
             }
         }
