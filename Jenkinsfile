@@ -1,5 +1,10 @@
 #!/usr/bin/env groovy
-@Library('jenkins-shared-library')
+library identifier: 'Jenkins-shared-library@main', retriever: modernSCM(
+    [$class: 'GitSCMSource',
+     remote: 'http://www.gitea.com/Admin/jenkins-shared-library.git'
+     credentialsId: 'Gitea_Credentials'
+    ]
+)
 def gv
 pipeline {
     agent any
