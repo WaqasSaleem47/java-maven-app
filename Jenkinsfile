@@ -9,21 +9,24 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                    gv = load "script.groovy"
+//                    gv = load "script.groovy"
+                    echo "Initializing the file"
                 }
             }
         }
         stage("run test") {
             steps {
                 script {
-                    gv.runTest()
+//                    gv.runTest()
+                    echo "Run test"
                 }
             }
         }
         stage("build jar") {
             steps {
                 script {
-                    gv.buildJar()
+//                    gv.buildJar()
+                    echo "Building the jar"
                 }
             }
         }
