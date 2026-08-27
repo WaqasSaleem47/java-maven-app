@@ -30,14 +30,16 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    gv.buildImage()
+//                    gv.buildImage()
+                    echo "Building the image"
                 }
             }
         }
         stage("deploy") {
             steps {
                 script {
-                    gv.deployApp()
+//                    gv.deployApp()
+                    echo "Deploying the image"
                 }
             }
         }
