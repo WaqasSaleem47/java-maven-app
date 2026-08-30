@@ -2,8 +2,6 @@ pipeline {
   agent any
     environment {
     NEW_VERSION = '1.3.0'
-    SERVER_CREDENTIALS =
-    credentials('NEXUS_PASSWORD')
   }
   stages {
     stage('Build') {
@@ -23,7 +21,7 @@ pipeline {
     stage('Deploy') {
     steps {
       withCredentials([usernamePassword(
-          credentialsId: 'server-credentials',
+          credentialsId: 'NEXUS_PASSWORD',
           usernameVariable: 'USER',
           passwordVariable: 'PWD')]) {
       echo  "$USER $PWD"
