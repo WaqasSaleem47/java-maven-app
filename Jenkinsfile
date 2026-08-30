@@ -9,40 +9,35 @@ pipeline {
         stage("init") {
             steps {
                 script {
-//                    gv = load "script.groovy"
-                    echo "Initializing the file"
+                    gv = load "script.groovy"
                 }
             }
         }
         stage("run test") {
             steps {
                 script {
-//                    gv.runTest()
-                    echo "Run test"
+                    gv.runTest()
                 }
             }
         }
         stage("build jar") {
             steps {
                 script {
-//                    gv.buildJar()
-                    echo "Building the jar"
+                    gv.buildJar()
                 }
             }
         }
         stage("build image") {
             steps {
                 script {
-//                    gv.buildImage()
-                    echo "Building the image"
+                    gv.buildImage()
                 }
             }
         }
         stage("deploy") {
             steps {
                 script {
-//                    gv.deployApp()
-                    echo "Deploying the image"
+                    gv.deployApp()
                 }
             }
         }
