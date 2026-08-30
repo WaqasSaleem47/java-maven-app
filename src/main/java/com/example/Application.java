@@ -19,6 +19,7 @@ public class Application {
     {
         Logger log = LoggerFactory.getLogger(Application.class);
         log.info("Java app started");
+        log.info("successfully");
     }
 
     public String getStatus() {
