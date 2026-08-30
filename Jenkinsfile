@@ -15,7 +15,7 @@ pipeline {
     stage('Test') {
       when {
         expression {
-          env.BRANCH_NAME == 'dev'
+          env.BRANCH_NAME != 'dev'
         }
       }
       steps { echo 'testing the application...' }
@@ -23,8 +23,8 @@ pipeline {
     stage('Deploy') {
       steps { 
         echo 'deploying the application...'
-        sh "deploy --user ${SERVER_CREDENTIALS_USR}"
-        sh "deploy --password ${SERVER_CREDENTIALS_PSW}"
+        echo "Deploying as ${SERVER_CREDENTIALS_USR}"
+        echo "Deploying as ${SERVER_CREDENTIALS_PSW}"
       }
     }
   }
