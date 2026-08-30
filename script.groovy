@@ -12,7 +12,7 @@ def deployApp() {
     usernamePassword(
       credentialsId: 'server-credentials',
       usernameVariable: 'USER',
-      passwordVariable: 'PWD'
+      passwordVariable: 'PASS'
     )
   ]) {
     sh 'echo $PASS | docker login -u $USER --password-stdin'
