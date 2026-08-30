@@ -1,3 +1,4 @@
+CODE_CHANGES = getGitChanges()
 pipeline {
   agent any
   stages {
@@ -7,7 +8,7 @@ pipeline {
     stage('Test') {
       when {
         expression {
-          env.BRANCH_NAME == 'dev' ||  env.BRANCH_NAME == 'main'
+          env.BRANCH_NAME == 'dev' ||  env.CODE_CHANGES == true
         }
       }
       steps { echo 'testing the application...' }
