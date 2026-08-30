@@ -1,3 +1,4 @@
+@NonCPS def getGitChanges() { return !currentBuild.changeSets.isEmpty() }
 CODE_CHANGES = getGitChanges()
 pipeline {
   agent any
