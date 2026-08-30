@@ -21,10 +21,11 @@ pipeline {
       steps { echo 'testing the application...' }
     }
     stage('Deploy') {
-      steps { echo 'deploying the application...' }
-      sh "deploy --user ${SERVER_CREDENTIALS_USR}"
-      sh "deploy --password ${SERVER_CREDENTIALS_PSW}"
-
+      steps { 
+        echo 'deploying the application...'
+        sh "deploy --user ${SERVER_CREDENTIALS_USR}"
+        sh "deploy --password ${SERVER_CREDENTIALS_PSW}"
+      }
     }
   }
   post {
