@@ -11,4 +11,15 @@ pipeline {
       steps { echo 'deploying the application...' }
     }
   }
+  post {
+    always  { 
+      echo 'This always runs'
+    }
+    success {
+      echo 'The pipeline succeeded'
+    }
+    failure {
+      echo 'The pipeline failed'
+    }
+  }
 }
