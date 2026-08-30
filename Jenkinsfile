@@ -21,11 +21,15 @@ pipeline {
       steps { echo 'testing the application...' }
     }
     stage('Deploy') {
-      steps { 
-        echo 'deploying the application...'
-        echo "Deploying as ${SERVER_CREDENTIALS_USR}"
-        echo "Deploying as ${SERVER_CREDENTIALS_PSW}"
-      }
+    steps {
+      withCredentials([usernamePassword(
+          credentialsId: 'server-credentials',
+          usernameVariable: 'USER',
+          passwordVariable: 'PWD')]) {
+      echo  "$USER $PWD"
+  }
+}
+
     }
   }
   post {
