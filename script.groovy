@@ -16,7 +16,7 @@ def deployApp() {
     )
   ]) {
     sh 'echo $PASS | docker login -u $USER --password-stdin'
-    sh 'docker push nanajanashia/java-maven-app:1.0'
+    sh 'docker push waqassaleem/java-maven-app:1.0'
   }
 }
 
